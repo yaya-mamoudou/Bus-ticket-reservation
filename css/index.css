@@ -1,0 +1,625 @@
+:root{
+    --main-color: #fccd04;
+    --nav_height: 50px;
+    --body-color: #f2f2f2 ;
+}
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    letter-spacing: 1.4px;
+    
+
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+p{
+    text-align: justify;
+}
+a{
+    text-decoration: none;
+    color: inherit;
+}
+.menu{
+    font-size: 2rem;
+    padding: 1.1rem;
+    transition: right 1.3s ease-in-out;
+}
+li:hover, button:hover{
+    transition: background-color 0.3s ease-in-out ;
+}
+body{
+    background-color: 	var(--body-color);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+input,option,select{
+    font-size: 1rem;
+    padding: 0.5%;
+    color: #808080;
+    
+}
+select{
+    width: 70%;
+    margin-left: 1rem;
+}
+.close_btn{
+    font-size: 1.9rem;
+    color: white;
+    position: absolute;
+    right: 2rem;
+    top: 1.5rem;
+}
+.payment_methods{
+    height: 20%;
+    width: 80%;
+    display: flex;
+    margin: auto;
+}
+.payment_methods .MTN{
+    height: 100%;
+    width: 50%;
+    background-color: #fccd04;
+}
+.payment_methods .Orange{
+    background-color: #46344E;
+    height: 100%;
+    width: 50%;
+}
+.left_btn{
+    font-size: 1.9rem;
+    color: #fccd04;
+    background-color: #46344E;
+    position: absolute;
+    right: 2rem;
+    top: 1.5rem;
+}
+.close_btn:hover{
+    color: #fccd04;
+    cursor: pointer;
+}
+.payment{
+    background-color: white;
+    width: 50%;
+    height: 60vh;
+    position: relative;
+    text-align: center;
+    padding: 2rem;
+    margin: auto auto;
+    z-index: 4;
+    margin: 12vh auto;
+}
+.payment button{
+    font-size: 1rem;
+    padding: 0.5rem;
+    margin-top: 1.7rem;
+    border: solid 1px #46344E;
+}
+.payment button:hover{
+    color: white;
+    background-color: #46344E;
+}
+.pop_up{
+    width: 100%;
+    height: calc(100vh - 11vh);
+    background-color: rgba(20, 20, 16, 0.4);
+    position: fixed;
+    bottom: 0vh;
+    z-index: 4;
+    display: flex;
+    display: none;
+}
+.pop_up input, .pop_up button{
+    margin: auto;
+    
+}
+.pop_up input{
+    padding: 0.7%;
+    margin-top: 1rem;
+    width: 40%;
+}
+.pop_up button{
+    margin-top: 1rem;
+    width: 55%;
+}
+.ticket_confirm{
+    margin: 12vh auto;
+    display: none;
+    width: 50%;
+    height: 60vh;
+    background-image: linear-gradient(180deg ,#fccd04,#46344E);
+    position: relative;
+    text-align: center;
+    padding: 2rem;
+    z-index: 4;
+    color: #46344E;
+}
+.ticket_confirm button:hover{
+    color: white;
+    background-color: #46344E;
+
+}
+.ticket_confirm button{
+    font-size: 1rem;
+    padding: 0.5rem;
+    margin-top: 1.7rem;
+    border: solid 1px #46344E;
+}
+.sideNav{
+    background-image: url("../photo/wood.jpg");
+    background-size: cover;
+    width: 0px;
+    height: 100vh;
+    /* padding: 2rem; */
+    background-color: white;
+    color: #46344E;
+    position: fixed;
+    display: flex;
+    right: 0;
+    transition: 1s;
+    
+}
+
+.blur_sideNav{
+    position: fixed;
+    height: 100vh;
+    background-color: rgb(0, 0, 0,0.6);
+    top: 0;
+    left: 0;
+    opacity: 0;
+    width: 80vw;
+    transition: opacity 0.4s;
+    z-index: -1;
+}
+
+.sideNav ul{
+    width: 80%;
+}
+
+.sideNav ul li{
+    margin: 2rem 0;
+    width: 100%;
+    height: 20%;
+    text-align: center;
+    font-size: 2.1rem;
+    border: solid #46344E 2px;
+    padding: 0.5rem;
+    transition: font-size 0.1s ease-in-out;
+    /* padding: 2rem; */
+}
+.sideNav ul li:hover{
+    
+    font-size: 2.5rem;
+    color: #ffbf00;
+    background-color: transparent;
+    border: solid #46344E 2px;
+}
+
+.sideNav ul{
+    margin: auto;
+    margin-top: 50%;
+}
+
+
+.navbar{
+    transition: 1s;
+    width: 100%;
+    height: var();
+    background-color: #F8F8F8;
+    display: flex;
+    color: #46344E;
+    font-size: 1.3rem;
+    font-weight: bolder;
+    position: fixed;
+    z-index: 3;
+    border-bottom: solid 0.01px #f2f2f2;
+}
+
+@keyframes focus{
+    0%{
+        box-shadow: 0px 0px 9px white;
+    }
+    50%{
+        box-shadow: 0px 0px 14px white;
+    }
+    100%{
+        box-shadow: 0px 0px 18px white;
+    }
+}
+
+ul{
+    list-style: none;
+}
+li:hover, button:hover{
+    cursor: pointer;
+}
+li:hover{
+    background-color: #46344E;
+    opacity: 0.8;
+    color: white;
+}
+.navbar .nav_items li{
+    padding: 1.3rem;
+
+}
+.navbar .nav_items li:not(:last-child){
+    border-right: solid 1px #46344E;
+}
+.logo{
+    padding: 1.3rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+.nav_items{
+    display: flex;
+    margin-left: auto;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+.background_picture{
+    background-image: url("../photo/SS2239930.jpg");
+    height: 90vh;
+    background-size: cover;
+    width: 100%;
+    background-repeat: no-repeat;
+    transition: 1s;
+}
+.Bgd_opacity{
+    width: 100%;
+    height: 100%;
+    background-color: #46344E;
+    opacity: 0.89;
+}
+.landing_text{
+    padding: 8rem 3rem 3rem 3rem;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+.landing_text h1, .landing_text h2{
+    color: var(--main-color);
+    font-family: 'Kaushan Script', cursive;
+}
+.landing_text h1{
+    font-size: 12vh ;
+    text-align: center;
+}
+.landing_text h2{
+    font-size: 7vh ;
+    text-align: center;
+    color: white;
+    margin-top: 1.8rem;
+
+}
+ .landing_text a .reserve_button_link{
+    padding: 0.8rem;
+    font-size: 4vh;
+    font-weight: bold;
+    border: 0;
+    border-radius: 10px;
+    margin: auto;
+    margin-top: 10vh;
+    background-color: #ffbf00;
+    color: #46344E;
+    outline: none;
+}
+.landing_text a{
+    margin: auto;
+}
+a .reserve_button_link:hover{
+    background-color: transparent;
+    color: white;
+    border: 1.5px solid white;
+    outline: none;
+}
+.reservation_block{
+    width: 100%;
+    height: calc(100vh - 14vh);
+    display: flex;
+    padding: 0 0 1.2rem 1.2rem;
+}
+.side_picture{
+    width: 100%;
+    height: 100%;
+    background-color: teal;
+    display: flex;
+    background-image: url("../photo/bus_driver_man.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.form_area{
+    margin-left: auto;
+    width: 70%;
+    height: 100%;
+    border-radius: 0% 0 0 30%;
+    background-color: var(--body-color)	;
+    position: relative;
+    right: 25%;
+    z-index: 2;
+}
+.blur{
+    height: 100%;
+    width: 100%;
+    background-image: linear-gradient(360deg, white,#46344E);
+    z-index: 2;
+    opacity: 0.3;
+}
+.form_area .form_body{
+    box-shadow: 0 0 12px #0000001c;
+    padding: 0.5rem;
+    border: solid 1px #0000001c;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    background-color: var(--body-color);
+    margin-left: 50%;
+}
+.form_position{
+    z-index: 3;
+    position: absolute;
+    margin-left: 6%;
+}
+.form_block_style{
+    padding: 1.5vh;
+    font-size: 1.2rem;
+    border-radius: 2px;
+    margin: 5px;
+    color: rgb(110, 94, 117); 
+}
+.form_block_style:not(:nth-child(2)){
+    display: flex;
+}
+.form_block_style:nth-child(odd){
+    background-color: rgb(255, 208, 0);
+} 
+.form_block_style:nth-child(even){
+    background-color: #d9d9d9;
+}
+.form_block_style  input{
+    border: none;
+    padding: 1%;
+    margin-left: 5%;
+    width: 75%;
+    outline: none;
+    color: #808080 !important;
+
+}
+.form_block_style:first-child{
+    margin-top: 0 !important;
+}
+.form_block_style  input:focus{
+    outline: lightblue;
+}
+.form_block_style span input{
+    width: 5%;
+    margin: 0 5%;
+}
+.form_block_style span input:first-child{
+    margin-right: 10%;
+}
+#reservation{
+    width: 100%;
+    padding-top: 14vh;
+    transition: 1s;
+}
+.reserve{
+    padding: 1.02rem;
+    background-color: #46344E;
+    outline: none;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: large;
+    margin: 1.4rem auto;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.reserve:hover{
+    background-color: #ffbf00;
+    color: #46344E;
+}
+.down,.up{
+    position: fixed;
+    right: 1.1rem;
+    font-size: 2rem;
+    color: #ffbf00;
+    background-color: #46344E;
+}
+.up{
+    bottom: 2rem;
+}
+.down{
+    bottom: 5rem;
+}
+.footer{
+    transition: 1s;
+    justify-content: space-around;
+    margin-top: 12vh;
+    width: 100%;
+    height: 50vh;
+    display: flex;
+    background-color: rgb(70, 52, 78);
+    color: white;
+    background-image: url("../photo/Big-Data-Bus.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.blur_footer{
+    padding-top: 0.5rem;
+    line-height: 1.4rem;
+    font-size: 14px;
+    letter-spacing: 1.1rem;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    background-color: rgba(70, 52, 78,0.9);
+
+}
+.about h3,.info h3{
+    font-size: 1.4rem;
+}
+.about,.info{
+    height: 100%; 
+    padding: 1rem 5rem;
+    line-height: 2rem;
+    letter-spacing: 2px;
+    width: 100%;
+}
+
+.info_content{
+    overflow: hidden;
+    width: 100%;
+    height: 67%;
+    background-color: #F8F8F8;
+    position: relative;
+} 
+.pic_place{
+    position: relative;
+    overflow: hidden;
+    width: fit-content;
+    display: flex;
+    width: 400%;
+    height: 100%;
+    background-color: transparent;
+    transition: all 1s ease-in-out;
+}
+.Pic_block{
+    position: relative;
+    width: 25%;
+    padding: 1.7%;
+    
+}
+.left-arrow, .right-arrow{
+    position: absolute;
+    font-size: 2.1rem;
+    color: #46344E;
+    cursor: pointer;
+    z-index: 2;
+}
+.Pic_block:hover .news_buletin{
+    display: block;
+    left: 0;
+    transition: left 1s;
+}
+.Pic_block:hover img{
+    
+    transform: scale(1.2,1.2);
+    transition: transform 1.5s ease-out ;
+}
+.news_buletin{
+    top: 0;
+    left: 100%;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transition: 1s;
+    background-color: rgba(243, 241, 215, 0.8);
+    padding: 5% 7%;
+    font-size: 1.1rem;
+    color: black;
+    font-weight: bolder;
+    display: none;
+}
+.left-arrow{
+    top: 47%;
+    left: 1px;
+}
+.right-arrow{
+    top: 46%;
+    right: 1px;
+}
+.pic_place .Pic_block img{
+    position: relative;
+    width: 100%;
+    
+    margin: 0%;
+    height: 100%;
+}
+.help{
+    width: 40%;
+    height: 100%;
+}
+
+@media screen and (max-width: 1185px){
+    .landing_text a .reserve_button_link{
+        margin-top: 6vh;
+    }
+}
+@media screen and (max-width: 1000px){
+    .background_picture{
+        height: fit-content;
+    }
+}
+@media screen and (max-width: 1036px){
+    .blur_footer{
+        height: fit-content;
+    }
+    .info{
+        height: unset;
+    }
+
+}
+
+@media screen and (max-width: 884px){
+    .landing_text{
+        padding-top: 4rem;
+    }
+}
+@media screen and (max-width: 523px){
+    .landing_text{
+        padding-top: 8rem !important;
+    }
+    .payment{
+        padding: 1rem;
+    }
+}
+
+@media screen and (max-width: 708px){
+    .form_body{
+        margin-left: unset !important;
+    }
+    .blur,.side_picture{
+        display: none;
+    }
+    .payment{
+        width: 80%;
+    }
+    .landing_text a .reserve_button_link{
+        margin-top: 2rem;
+    }
+    .landing_text h1{
+        font-size: 10vw;
+    }
+    .landing_text h2{
+        font-size: 8vw;
+    }
+    .about, .info {
+        padding: 1rem 1rem;
+    }
+    .landing_text{
+        padding: 4rem 1rem 1rem 1rem;
+    }
+    .reservation_block{
+        padding: 0;
+    }
+    
+    .form_area{
+        margin: auto;
+        width: 90%;
+        right: unset;
+    }
+    
+    .background_picture{
+        height: 100vh;
+    }
+
+    .blur_footer{
+        flex-direction: column;
+        height: fit-content;
+    }
+}
