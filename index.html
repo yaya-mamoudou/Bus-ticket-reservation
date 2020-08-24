@@ -1,29 +1,36 @@
+<?php 
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.13.0/css/all.css"
-      integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V"
-      crossorigin="anonymous"
-    />
     <script src="js/index.js"></script>
-    <link rel="stylesheet" href="css/index.css">
-    <link rel="stylesheet" href="fontawesome-free-5.13.0-web/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"> -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="css/index.css">
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
 <body onload="loader()">
     
     <div class="navbar">
-        <a href="#down"><i class="fas fa-caret-square-down down"></i></a>
-        <a href="#up"><i class="fas fa-caret-square-up up"></i></a>
-        <div class="logo">
-            logo
+        <a href="#down"><i class="fa fa-caret-down down"></i></a>
+        <a href="#up"><i class="fa fa-caret-up up"></i></a>
+        <div class="logo" style = "height: 90px; width: 90px; position: relative; top: 9px;">
+            <img src="./photo/logo.jpg" style = "border-radius: 48%" width="100%" height="100%" alt="LOGO">
         </div>
         <ul class="nav_items">
+            <span style = "font-size: inherit" class = "username">
+                <?php if(isset($_SESSION["username"])){
+                    echo $_SESSION["username"];
+                }
+                ?>
+            </span>
             <i onclick="toggleMenu()" id="icon" class="fa fa-bars menu" aria-hidden="true"></i>
             
         </ul>
@@ -36,6 +43,8 @@
                 <a href="#down">
                     <li onclick="linkTo('info')">info</li>
                 </a>
+                <a href="./php/history.php"><li>History</li></a>
+                <a href="./php/logout.php"><li>Logout</li></a>
             </ul>
         </div>
     </div>
@@ -62,11 +71,11 @@
                 </div>
             </div>
             <div class="form_area">
-                <form action="#" method="POST">
+                <form name = "reserve_form" class="reserve_form" action="./php/reservationForm.php" method="POST">
                     <div class="form_body form_position">
                         <div class="form_block_style" >
                             <span>Name:</span>
-                            <input autocomplete="off" type="text" name="Name" placeholder=". . .">
+                            <input autocomplete="off" required type="text" name="name" placeholder=". . .">
                         </div>
         
                         <!-- <div class="form_block_style">
@@ -77,7 +86,7 @@
                         <div class="form_block_style" >
                             <span style="display: flex;" >
                                 Classic:
-                            <input type="radio" name="mode" value="classic" >
+                            <input type="radio" name="mode" value="classic">
                             VIP:
                             <input type="radio" name="mode" value="VIP">
                             </span>
@@ -85,7 +94,7 @@
         
                         <div class="form_block_style">
                             <span>Departure:</span>
-                            <select placeholder="Select" name="departure" id="">
+                            <select placeholder="Select" name="departure">
                                 <option value="Limbe">Limbe</option>
                                 <option value="Buea">Buea</option>
                                 <option value="Douala">Douala</option>
@@ -97,7 +106,7 @@
         
                         <div class="form_block_style">
                             <span>Destination:</span>
-                            <select name="departure" id="">
+                            <select name="destination" >
                                 <option value="Limbe">Limbe</option>
                                 <option value="Buea">Buea</option>
                                 <option value="Douala">Douala</option>
@@ -109,7 +118,7 @@
         
                         <div class="form_block_style">
                             <span>Time:</span>
-                            <select name="departure" id="">
+                            <select name="time">
                                 <option value="7am">7am</option>
                                 <option value="9am">9am</option>
                                 <option value="12am">12am</option>
@@ -126,12 +135,40 @@
         
                         <div class="form_block_style">
                             <span>num of places:</span>
-                            <input type="number" style="width: 15%;" name="date">
+                            <input type="number" required style="width: 15%;" name="number_of_places">
                         </div>
 
                         <button onclick="Reserve()" type="button" class="reserve">
                            confirm reservation
                         </button>
+                    </div>
+
+                    <div id="second_form_filds">
+                        <div id="payment" class="payment">
+                            <h1>Choose a payment Method</h1>
+                            <p><em>This will cost you</em>: 
+                                <input name="total_price" readonly="readonly" class="price_place" id="price_place"><em>FCFA</em>
+                            </p>
+                            <div class="payment_methods">
+                                <div class="MTN">
+                                    <img width="100%" height="100%" src="./photo/MoMo.jpg" alt="Mobile Money">
+                                </div>
+                                <div class="Orange">
+                                    <img width="100%" height="100%" src="./photo/OM.jpg" alt="Orange Money">
+                                </div>
+                            </div>
+                            <div style="display: flex; flex-direction: column;">
+                                <h4 style = "margin: 0.4rem">input number</h4>
+                                    <input required style="width: 60%; margin: 0 auto;" name="payment_number" type="number">
+                                    <button id="loading_button" type="button" onclick="make_payment()" >Click here to make Payment</button>
+                            </div>
+                        </div>
+                
+                        <div id="confirm" class="ticket_confirm">
+                            <h1>Thank you for trusting us</h1>
+                            <h3>Click down to Confirm</h3>
+                            <button onclick="Close_pop_up()" >Confirm</button>
+                        </div>
                     </div>
                     
                 </form>
@@ -186,38 +223,17 @@
 
                     </div>
                     
-                    <i onclick="picFront()" class="fas fa-long-arrow-alt-right right-arrow"></i>
-                    <i onclick="picBack()" class="fas fa-long-arrow-alt-left left-arrow"></i>
+                    <i onclick="picFront()" class="fa fa-long-arrow-right right-arrow"></i>
+                    <i onclick="picBack()" class="fa fa-long-arrow-left left-arrow"></i>
                 </div>
             </div>
         </div>
     </div>
 
     <div id="close_pop" class="pop_up">
-        <i onclick="Close_pop_up()" class="far fa-window-close close_btn"></i>
+        <i onclick="Close_pop_up()" class="fa fa-times-circle close_btn"></i>
         
-        <div id="payment" class="payment">
-            <h1>Choose a payment Method</h1>
-            <div class="payment_methods">
-                <div class="MTN">
-
-                </div>
-                <div class="Orange">
-
-                </div>
-            </div>
-            <div style="display: flex; flex-direction: column;">
-                <h4>input number</h4>
-                <input type="number">
-                <button id="loading_button" onclick="make_payment()" >Click here to make Payment</button>
-            </div>
-        </div>
-
-        <div id="confirm" class="ticket_confirm">
-            <h1>Thank you for trusting us</h1>
-            <h3>Your ticket is ready</h3>
-            <button onclick="Close_pop_up()" >Click here to close this box</button>
-        </div>
+        
         
     </div>
 

@@ -12,6 +12,7 @@
     
 
 }
+
 input[type=number]::-webkit-inner-spin-button, 
 input[type=number]::-webkit-outer-spin-button { 
   -webkit-appearance: none; 
@@ -24,9 +25,40 @@ a{
     text-decoration: none;
     color: inherit;
 }
+.payment p{
+    margin: 2%;
+    text-align: center;
+    font-size: 18px;
+}
+.price_place{
+    color: rgba(255, 81, 0, 0.74);
+    border: none; 
+    font-size: 2rem;
+    display: inline-block;
+    outline: none;
+    padding: 0 auto;
+    width: 30%;
+}
+.price_place:focus{
+    border-color: none;
+    outline: none;
+}
+#second_form_filds{
+    display: none;
+    position: fixed;
+    width: 50vw;
+    height: 100%;
+    z-index: 5;
+    top: 4rem;
+}
 .menu{
     font-size: 2rem;
     padding: 1.1rem;
+    transition: right 1.3s ease-in-out;
+}
+.username{
+    font-size: 2rem;
+    padding: 1.5rem;
     transition: right 1.3s ease-in-out;
 }
 li:hover, button:hover{
@@ -82,10 +114,11 @@ select{
     cursor: pointer;
 }
 .payment{
+    border-radius: 3px;
     background-color: white;
-    width: 50%;
+    width: 70%;
     height: 60vh;
-    position: relative;
+    position: absolute;
     text-align: center;
     padding: 2rem;
     margin: auto auto;
@@ -126,9 +159,9 @@ select{
     width: 55%;
 }
 .ticket_confirm{
-    margin: 12vh auto;
+    margin: 12vh 0;
     display: none;
-    width: 50%;
+    width: 70%;
     height: 60vh;
     background-image: linear-gradient(180deg ,#fccd04,#46344E);
     position: relative;
@@ -177,6 +210,8 @@ select{
 
 .sideNav ul{
     width: 80%;
+    margin-top: 30% !important;
+
 }
 
 .sideNav ul li{
@@ -184,7 +219,7 @@ select{
     width: 100%;
     height: 20%;
     text-align: center;
-    font-size: 2.1rem;
+    font-size: 1.5rem;
     border: solid #46344E 2px;
     padding: 0.5rem;
     transition: font-size 0.1s ease-in-out;
@@ -207,14 +242,14 @@ select{
 .navbar{
     transition: 1s;
     width: 100%;
-    height: var();
-    background-color: #F8F8F8;
+    height: 65px;
+    background-color: transparent;
     display: flex;
-    color: #46344E;
+    color: white;
     font-size: 1.3rem;
     font-weight: bolder;
     position: fixed;
-    z-index: 3;
+    z-index: 5;
     border-bottom: solid 0.01px #f2f2f2;
 }
 
@@ -249,7 +284,7 @@ li:hover{
     border-right: solid 1px #46344E;
 }
 .logo{
-    padding: 1.3rem;
+    padding: 0.8rem;
     letter-spacing: 2px;
     text-transform: uppercase;
 }
@@ -278,13 +313,14 @@ li:hover{
     display: flex;
     flex-direction: column;
     height: 100%;
+    width: 100%;
 }
 .landing_text h1, .landing_text h2{
     color: var(--main-color);
     font-family: 'Kaushan Script', cursive;
 }
 .landing_text h1{
-    font-size: 12vh ;
+    font-size: 5rem;
     text-align: center;
 }
 .landing_text h2{
@@ -305,6 +341,7 @@ li:hover{
     background-color: #ffbf00;
     color: #46344E;
     outline: none;
+    
 }
 .landing_text a{
     margin: auto;
@@ -314,6 +351,15 @@ a .reserve_button_link:hover{
     color: white;
     border: 1.5px solid white;
     outline: none;
+    
+}
+@keyframes buttonn{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
 }
 .reservation_block{
     width: 100%;
@@ -329,6 +375,7 @@ a .reserve_button_link:hover{
     background-image: url("../photo/bus_driver_man.jpg");
     background-size: cover;
     background-repeat: no-repeat;
+    z-index: 0;
 }
 .form_area{
     margin-left: auto;
@@ -338,7 +385,6 @@ a .reserve_button_link:hover{
     background-color: var(--body-color)	;
     position: relative;
     right: 25%;
-    z-index: 2;
 }
 .blur{
     height: 100%;
@@ -423,11 +469,13 @@ a .reserve_button_link:hover{
     color: #46344E;
 }
 .down,.up{
+    padding: 0.2%;
+    border-radius: 10%;
     position: fixed;
     right: 1.1rem;
     font-size: 2rem;
-    color: #ffbf00;
-    background-color: #46344E;
+    color: #46344E;
+    background-color: #ffbf00;
 }
 .up{
     bottom: 2rem;
@@ -569,6 +617,7 @@ a .reserve_button_link:hover{
     .landing_text{
         padding-top: 4rem;
     }
+    
 }
 @media screen and (max-width: 523px){
     .landing_text{
@@ -576,6 +625,10 @@ a .reserve_button_link:hover{
     }
     .payment{
         padding: 1rem;
+    }
+    #second_form_filds{
+        width: 100vw;
+        margin-left: 5%;
     }
 }
 
